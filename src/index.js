@@ -2,7 +2,7 @@
 var http = require("http");
 
 //importaciones de módulos locales, que son lo que se aporvechan para las funciones que se desarrolan. 
-var log = require('./modules/my-log');
+var {error, info  }= require('./modules/my-log');
 var consts = require('./utils/consts')
 var firebase = require('../libs/firebase')
 
@@ -17,12 +17,12 @@ var server = http.createServer(
             response.write("<html><body><p>Asies amiguito</p></body></html>");
             response.end();
         }else if(request.url === "/info") {
-            var result= log.info(request.url)
+            var result=info(request.url)
             response.writeHead(200, {"Content-Type": "text/html"});
             response.write(result);
             response.end();
         }else if(request.url === "/error") {
-            var result= log.error(request.url)
+            var result= error(request.url)
             response.writeHead(200, {"Content-Type": "text/html"});
             response.write(result);
             response.end();
