@@ -5,6 +5,7 @@ var http = require("http");
 var {error, info  }= require('./modules/my-log');
 var consts = require('./utils/consts')
 var firebase = require('../libs/firebase')
+var pais  = require('countries-list')
 
 var server = http.createServer(
     function(request, response) {
@@ -16,10 +17,9 @@ var server = http.createServer(
             response.writeHead(200, {"Content-Type": "text/html"});
             response.write("<html><body><p>Asies amiguito</p></body></html>");
             response.end();
-        }else if(request.url === "/info") {
-            var result=info(request.url)
-            response.writeHead(200, {"Content-Type": "text/html"});
-            response.write(result);
+        }else if(request.url === "/country") {
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.write(JSON.stringify(pais.countries.CO));
             response.end();
         }else if(request.url === "/error") {
             var result= error(request.url)
