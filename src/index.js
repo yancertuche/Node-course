@@ -27,6 +27,7 @@ var server = http.createServer(
             response.end();
         }else if(pathname === "/country") {
             response.writeHead(200, {"Content-Type": "application/json"});
+            
             response.write(JSON.stringify(pais.countries[query.code] ));
             response.end();
         }else if(pathname === "/error") {
