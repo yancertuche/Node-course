@@ -2,6 +2,7 @@
 var http = require("http");
 var url  = require('url');
 var querystring = require('querystring')
+let vari
 
 //importaciones de módulos locales, que son lo que se aporvechan para las funciones que se desarrolan. 
 var {error, info  }= require('./modules/my-log');
